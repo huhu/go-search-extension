@@ -1,2 +1,3 @@
-# go-search-extension
-The ultimate search extension for Golang
+# Go Search Extension
+
+The ultimate search extension for Golang.
