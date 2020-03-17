@@ -11,12 +11,12 @@ omnibox.bootstrap({
         let text = doc.package;
         let path = doc.package;
         if (doc.type !== "package") {
-            text += `/${doc.label}`;
+            text += `.${doc.label}`;
             path += `#${doc.label}`;
         }
         return {
             content: `https://godoc.org/${path}`,
-            description: `[${doc.type}] - ${c.match(text)} -- ${c.dim(c.escape(doc.description))}`,
+            description: `[${doc.type}] ${c.match(text)} - ${c.dim(c.escape(doc.description))}`,
         };
     },
     onAppend: (query) => {
