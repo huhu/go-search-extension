@@ -1,6 +1,8 @@
 const c = new Compat();
 const searcher = new DocSearch(searchIndex);
-const defaultSuggestion = `Search Go docs in your address bar instantly!`;
+const pkgSearcher = new PackageSearch(pkgs);
+
+const defaultSuggestion = `Search Go docs and packages in your address bar instantly!`;
 const omnibox = new Omnibox(c.browser, defaultSuggestion, c.isChrome ? 8 : 6);
 
 omnibox.bootstrap({
@@ -24,5 +26,19 @@ omnibox.bootstrap({
             content: `https://godoc.org/?q=${query}`,
             description: `Search Go docs ${c.match(query)} on https://godoc.org`,
         }]
+    }
+});
+
+omnibox.addPrefixQueryEvent("!", {
+    defaultSearch: true,
+    searchPriority: 1,
+    onSearch: (query) => {
+        return pkgSearcher.search(query);
+    },
+    onFormat: (index, pkg) => {
+        return {
+            content: `https://pkg.go.dev/${pkg.fullPath}`,
+            description: `${c.match(pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+        }
     }
 });
