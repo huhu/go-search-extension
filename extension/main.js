@@ -37,8 +37,8 @@ omnibox.addPrefixQueryEvent("!", {
     },
     onFormat: (index, pkg) => {
         return {
-            content: `https://pkg.go.dev/${pkg.fullPath}`,
-            description: `${c.match(pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+            content: `https://pkg.go.dev/${pkg.domain}/${pkg.repository}/${pkg.name}`,
+            description: `${pkg.domain}/${c.match(pkg.repository + "/" + pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
         }
     }
 });
