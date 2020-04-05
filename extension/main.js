@@ -2,7 +2,7 @@ const c = new Compat();
 const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
 
-const defaultSuggestion = `Search Go docs and packages in your address bar instantly!`;
+const defaultSuggestion = `Search Go std docs and third packages in your address bar instantly!`;
 const omnibox = new Omnibox(c.browser, defaultSuggestion, c.isChrome ? 8 : 6);
 
 omnibox.bootstrap({
@@ -17,14 +17,14 @@ omnibox.bootstrap({
             path += `#${doc.label}`;
         }
         return {
-            content: `https://godoc.org/${path}`,
-            description: `[${doc.type}] ${c.match(text)} - ${c.dim(c.escape(doc.description))}`,
+            content: `https://pkg.go.dev/${path}`,
+            description: `Std docs: [${doc.type}] ${c.match(text)} - ${c.dim(c.escape(doc.description))}`,
         };
     },
     onAppend: (query) => {
         return [{
-            content: `https://godoc.org/?q=${query}`,
-            description: `Search Go docs ${c.match(query)} on https://godoc.org`,
+            content: `https://pkg.go.dev/search?q=${query}`,
+            description: `Search packages ${c.match(query)} on https://pkg.go.dev/`,
         }]
     }
 });
@@ -38,7 +38,7 @@ omnibox.addPrefixQueryEvent("!", {
     onFormat: (index, pkg) => {
         return {
             content: `https://pkg.go.dev/${pkg.domain}/${pkg.repository}/${pkg.name}`,
-            description: `${pkg.domain}/${c.match(pkg.repository + "/" + pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+            description: `Package: ${pkg.domain}/${c.match(pkg.repository + "/" + pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
         }
     }
 });
