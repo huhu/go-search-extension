@@ -17,10 +17,10 @@
       "48": "icon.png"
     },
     "default_popup": "popup/index.html",
-    "default_title": "The ultimate search extension for Golang"
+    "default_title": "Search Go std docs and third packages in your address bar instantly!"
   },
   "content_security_policy": "script-src 'self'; object-src 'self';",
-  "description": "The ultimate search extension for Golang",
+  "description": "Search Go std docs and third packages in your address bar instantly!",
   "icons": {
     "48": "icon.png"
   },
@@ -32,5 +32,5 @@
   "permissions": [
     "tabs"
   ],
-  "version": "0.0.1"
+  "version": "0.1.0"
 }
