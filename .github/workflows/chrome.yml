@@ -13,9 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: zip dist
-          uses: montudor/action-zip@v0.1.0
-          with:
-            args: zip -qq -r ./extension.zip ./extension
+        uses: montudor/action-zip@v0.1.0
+        with:
+          args: zip -qq -r ./extension.zip ./extension
       - name: upload
         uses: trmcnvn/chrome-addon@v2
         with:
