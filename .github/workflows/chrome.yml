@@ -19,9 +19,7 @@ jobs:
       - name: upload
         uses: trmcnvn/chrome-addon@v2
         with:
-          # extension is only necessary when updating an existing addon,
-          # omitting it will create a new addon
-          # extension: abcdefg
+          extension: adfoofaganimefeanophhfkmdiaaoglo
           zip: extension.zip
           client-id: ${{ secrets.CHROME_CLIENT_ID }}
           client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
