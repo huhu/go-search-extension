@@ -17,11 +17,13 @@
       "48": "icon.png"
     },
     "default_popup": "popup/index.html",
-    "default_title": "Search Go std docs and third packages in your address bar instantly!"
+    "default_title": "Search Golang std docs and third packages in your address bar instantly!"
   },
   "content_security_policy": "script-src 'self'; object-src 'self';",
-  "description": "Search Go std docs and third packages in your address bar instantly!",
+  "description": "Search Golang std docs and third packages in your address bar instantly!",
   "icons": {
+    "128": "icon.png",
+    "16": "icon.png",
     "48": "icon.png"
   },
   "manifest_version": 2,
