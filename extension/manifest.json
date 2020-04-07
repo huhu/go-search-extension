@@ -34,5 +34,10 @@
   "permissions": [
     "tabs"
   ],
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "go-search-extension@extension.huhu.io"
+    }
+  }
 }
