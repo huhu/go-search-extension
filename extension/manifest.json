@@ -3,6 +3,9 @@
     "scripts": [
       "core/compat.js",
       "core/omnibox.js",
+      "core/command/base.js",
+      "core/command/history.js",
+      "core/command/manager.js",
       "search/docs.js",
       "search/package.js",
       "godocs.js",

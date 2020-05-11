@@ -1,6 +1,7 @@
 const c = new Compat();
 const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
+const commandManager = new CommandManager();
 
 const defaultSuggestion = `Search Go std docs and third packages in your address bar instantly!`;
 const omnibox = new Omnibox(defaultSuggestion, c.omniboxPageSize());
@@ -26,6 +27,9 @@ omnibox.bootstrap({
             content: `https://pkg.go.dev/search?q=${query}`,
             description: `Search packages ${c.match(query)} on https://pkg.go.dev/`,
         }]
+    },
+    afterNavigated: (query, result) => {
+        HistoryCommand.record(query, result);
     }
 });
 
@@ -42,3 +46,11 @@ omnibox.addPrefixQueryEvent("!", {
         }
     }
 });
+
+omnibox.addPrefixQueryEvent(":", {
+    onSearch: (query) => {
+        return commandManager.execute(query);
+    }
+})
+
+omnibox.addNoCacheQueries(":");
