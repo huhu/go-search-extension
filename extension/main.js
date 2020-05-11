@@ -3,7 +3,7 @@ const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
 
 const defaultSuggestion = `Search Go std docs and third packages in your address bar instantly!`;
-const omnibox = new Omnibox(defaultSuggestion, c.isChrome ? 8 : 6);
+const omnibox = new Omnibox(defaultSuggestion, c.omniboxPageSize());
 
 omnibox.bootstrap({
     onSearch: (query) => {
