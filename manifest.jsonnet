@@ -21,7 +21,7 @@ local json = manifest.new(
 
 if std.extVar('browser') == 'firefox' then
   json
-  {
+  + {
     browser_specific_settings: {
       gecko: {
         id: '{bb3394f3-9a10-4b30-ae77-6cc6fd51de99}',
