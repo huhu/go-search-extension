@@ -1,3 +1,0 @@
-[submodule "extension/core"]
-	path = extension/core
-	url = git@github.com:huhu/search-extension-core.git
