@@ -14,8 +14,8 @@ local json = manifest.new(
              .addBackgroundScript([
   'search/docs.js',
   'search/package.js',
-  'godocs.js',
-  'packages.js',
+  'index/godocs.js',
+  'index/packages.js',
   'main.js',
 ]);
 

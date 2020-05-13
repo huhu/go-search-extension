@@ -8,3 +8,4 @@ node_modules
 target
 docs/public
 *.db
+manifest.json
