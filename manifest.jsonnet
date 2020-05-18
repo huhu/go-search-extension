@@ -11,7 +11,7 @@ local json = manifest.new(
   description='Search Golang std docs and third packages in your address bar instantly!',
 )
              .addIcons(icons())
-             .addBackgroundScript([
+             .addBackgroundScripts([
   'search/docs.js',
   'search/package.js',
   'index/godocs.js',

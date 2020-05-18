@@ -1,7 +1,9 @@
 const c = new Compat();
 const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
-const commandManager = new CommandManager();
+const commandManager = new CommandManager(
+    new HistoryCommand(),
+);
 
 const defaultSuggestion = `Search Go std docs and third packages in your address bar instantly!`;
 const omnibox = new Omnibox(defaultSuggestion, c.omniboxPageSize());
@@ -51,6 +53,6 @@ omnibox.addPrefixQueryEvent(":", {
     onSearch: (query) => {
         return commandManager.execute(query);
     }
-})
+});
 
 omnibox.addNoCacheQueries(":");
