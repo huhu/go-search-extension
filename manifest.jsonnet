@@ -16,6 +16,7 @@ local json = manifest.new(
   'search/package.js',
   'index/godocs.js',
   'index/packages.js',
+  'command/help.js',
   'main.js',
 ]);
 

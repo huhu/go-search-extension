@@ -2,6 +2,7 @@ const c = new Compat();
 const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
 const commandManager = new CommandManager(
+    new HelpCommand(),
     new HistoryCommand(),
 );
 
