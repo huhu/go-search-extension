@@ -7,16 +7,16 @@ PackageSearch.prototype.search = function(keyword) {
     let result = [];
     keyword = keyword.replace(/[-_!]/g, "");
     for (let rawName of this.packageNames) {
-        let [domain, repository, name] = rawName.replace(/[-_]/ig, "").split("/");
-        let domainMatchIndex = domain.indexOf(keyword);
+        let [domain, repository, name] = rawName.split("/");
+        let domainMatchIndex = domain.replace(/[-_]/ig, "").indexOf(keyword);
         if (domainMatchIndex === -1) {
             domainMatchIndex = 999;
         }
-        let repositoryMatchIndex = repository.indexOf(keyword);
+        let repositoryMatchIndex = repository.replace(/[-_]/ig, "").indexOf(keyword);
         if (repositoryMatchIndex === -1) {
             repositoryMatchIndex = 999;
         }
-        let nameMatchIndex = name.indexOf(keyword);
+        let nameMatchIndex = name.replace(/[-_]/ig, "").indexOf(keyword);
         if (nameMatchIndex === -1) {
             nameMatchIndex = 999;
         }
