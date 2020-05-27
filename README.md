@@ -26,3 +26,7 @@
 Input keyword **go** in the address bar, press `Space` to activate the search bar. Then enter any word 
 you want to search, the extension will response the related search results instantly.
 
+### Get involved
+
+- You can contact us on Discord Channel: https://discord.com/invite/UAzW4A
+- Or by adding the Wechat ID: `huhu_io`, we'll invite you to our Wechat group.
