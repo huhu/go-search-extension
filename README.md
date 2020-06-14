@@ -26,6 +26,20 @@
 Input keyword **go** in the address bar, press `Space` to activate the search bar. Then enter any word 
 you want to search, the extension will response the related search results instantly.
 
+## Contribution
+
+```bash
+$ git clone --recursive https://github.com/huhu/go-search-extension
+Cloning into 'go-search-extension'...
+$ cd go-search-extension
+
+$ make chrome # For Chrome version
+
+$ make firefox # For Firefox version
+
+$ make edge # For Edge version
+```
+
 ### Get involved
 
 - You can contact us on Discord Channel: https://discord.com/invite/UAzW4A
