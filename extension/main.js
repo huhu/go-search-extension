@@ -44,11 +44,24 @@ omnibox.addPrefixQueryEvent("!", {
     },
     onFormat: (index, pkg) => {
         return {
-            content: `https://pkg.go.dev/${pkg.domain}/${pkg.repository}/${pkg.name}`,
-            description: `Package: ${pkg.domain}/${c.match(pkg.repository + "/" + pkg.name)} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+            content: `https://pkg.go.dev/${join([pkg.domain, pkg.repository, pkg.name])}`,
+            description: `Package: ${pkg.domain}/${c.match(join([pkg.repository, pkg.name]))} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
         }
     }
 });
+
+// join(["A","bb"]) == "A/bb"
+// join(["A","bb",undefined]) == "A/bb"
+// join(["A",undefined,undefined]) == "A"
+// join(["A",undefined,"a"]) == "A/a"
+function join(list) {
+    // Use filter() method to filter out falsy item.
+    let result = (list || []).filter(_ => _).join("/");
+    if (result.endsWith("/")) {
+        result = result.slice(0, result.length);
+    }
+    return result;
+}
 
 omnibox.addPrefixQueryEvent(":", {
     onSearch: (query) => {
