@@ -42,10 +42,17 @@ omnibox.addPrefixQueryEvent("!", {
     onSearch: (query) => {
         return pkgSearcher.search(query);
     },
-    onFormat: (index, pkg) => {
-        return {
-            content: `https://pkg.go.dev/${join([pkg.domain, pkg.repository, pkg.name])}`,
-            description: `Package: ${pkg.domain}/${c.match(join([pkg.repository, pkg.name]))} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+    onFormat: (index, pkg, query) => {
+        if (query.startsWith("!!")) {
+            return {
+                content: `https://${join([pkg.domain, pkg.repository, pkg.name])}`,
+                description: `Repository: ${pkg.domain}/${c.match(join([pkg.repository, pkg.name]))} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+            }
+        } else {
+            return {
+                content: `https://pkg.go.dev/${join([pkg.domain, pkg.repository, pkg.name])}`,
+                description: `Package: ${pkg.domain}/${c.match(join([pkg.repository, pkg.name]))} ${pkg.version} - ${c.dim(c.escape(pkg.description))}`,
+            }
         }
     }
 });
