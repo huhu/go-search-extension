@@ -4,12 +4,10 @@ class HelpCommand extends Command {
     }
 
     onExecute(arg) {
-        const value = ([
+        const value = [
             `Prefix ${c.match(":")} to execute command (:help, :history, etc)`,
-            `Prefix ${c.match("!")} to search packages exclusively`,
-        ]);
-        return value.map((description, index) => {
-            return {content: `${index + 1}`, description};
-        });
+            `Prefix ${c.match("!")} to search packages exclusively, prefix ${c.match("!!")} to open the repository`,
+        ];
+        return this.wrap(value);
     }
 }
