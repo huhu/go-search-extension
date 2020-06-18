@@ -1,6 +1,7 @@
 const c = new Compat();
 const searcher = new DocSearch(searchIndex);
 const pkgSearcher = new PackageSearch(pkgs);
+const awesomeSearcher = new AwesomeSearch(awesomeIndex);
 const commandManager = new CommandManager(
     new HelpCommand(),
     new HistoryCommand(),
@@ -69,6 +70,19 @@ function join(list) {
     }
     return result;
 }
+
+omnibox.addPrefixQueryEvent("$", {
+    // deduplicate: true,
+    onSearch: (query) => {
+        return awesomeSearcher.search(query);
+    },
+    onFormat: (index, item) => {
+        return {
+            content: item.url,
+            description: `[${item.category}] ${c.match(item.name)} - ${c.dim(c.escape(item.description))}`,
+        }
+    }
+});
 
 omnibox.addPrefixQueryEvent(":", {
     onSearch: (query) => {
