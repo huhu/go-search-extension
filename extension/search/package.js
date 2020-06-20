@@ -9,12 +9,14 @@ PackageSearch.prototype.search = function(keyword) {
     let result = [];
     keyword = keyword.replace(/[-_!]/g, "");
     for (let rawName of this.packageNames) {
-        let [domain, repository, name] = rawName.split("/");
+        let [domain, repository, ...name] = rawName.split("/");
+        // Join the rest to name.
+        name = name.join("/");
         let domainMatchIndex = domain.replace(/[-_]/ig, "").indexOf(keyword);
         if (domainMatchIndex === -1) {
             domainMatchIndex = LOWEST_MATCH_INDEX;
         }
-        let repositoryMatchIndex = repository ? repository.replace(/[-_]/ig, "").indexOf(keyword) : LOWEST_MATCH_INDEX;
+        let repositoryMatchIndex = repository ? repository.indexOf(keyword) : LOWEST_MATCH_INDEX;
         if (repositoryMatchIndex === -1) {
             repositoryMatchIndex = LOWEST_MATCH_INDEX;
         }
