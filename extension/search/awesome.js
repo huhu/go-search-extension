@@ -2,7 +2,8 @@ function AwesomeSearch(index) {
     this.awesomeIndex = {};
     this.awesomeNames = [];
     index.forEach(([name, url, description, category]) => {
-        this.awesomeIndex[name] = {url, description, category};
+        name = category + ';' + name;
+        this.awesomeIndex[name] = {url, description};
         this.awesomeNames.push(name);
     });
 }
@@ -11,24 +12,32 @@ AwesomeSearch.prototype.search = function(keyword) {
     let result = [];
     keyword = keyword.replace(/[-_$]/g, "");
     for (let rawName of this.awesomeNames) {
-        let name = rawName.replace(/[-_$]/g, "");
-        if (name.length < keyword.length) continue;
+        let [category, name] = rawName.split(';');
 
-        let index = name.indexOf(keyword);
-        if (index > -1) {
-            result.push({name: rawName, matchIndex: index});
+        let categoryMatchIndex = category.toLowerCase().replace(/[-_$]/g, "").indexOf(keyword);
+        if (categoryMatchIndex === -1) {
+            categoryMatchIndex = 999;
+        }
+        let nameMatchIndex = name.toLowerCase().replace(/[-_$]/g, "").indexOf(keyword);
+        if (nameMatchIndex === -1) {
+            nameMatchIndex = 999;
+        }
+
+        if ([categoryMatchIndex, nameMatchIndex].some(i => i !== 999)) {
+            result.push({
+                name, category, nameMatchIndex, categoryMatchIndex,
+                ...this.awesomeIndex[rawName],
+            });
         }
     }
 
     return result.sort((a, b) => {
-        if (a.matchIndex === b.matchIndex) {
-            return a.name.length - b.name.length;
+        if (a.categoryMatchIndex === b.categoryMatchIndex) {
+            if (a.nameMatchIndex === b.nameMatchIndex) {
+                return a.name.length - b.name.length;
+            }
+            return a.nameMatchIndex - b.nameMatchIndex;
         }
-        return a.matchIndex - b.matchIndex;
-    }).map(item => {
-        return {
-            name: item.name,
-            ...this.awesomeIndex[item.name]
-        }
+        return a.categoryMatchIndex - b.categoryMatchIndex;
     });
 }
