@@ -4,6 +4,10 @@ const pkgSearcher = new PackageSearch(pkgs);
 const awesomeSearcher = new AwesomeSearch(awesomeIndex);
 const commandManager = new CommandManager(
     new HelpCommand(),
+    new SimpleCommand("book", "Show all Golang e-books.", othersIndex['book']),
+    new SimpleCommand('conf', 'Show Golang conferences', othersIndex['conf']),
+    new SimpleCommand('meetup', 'Show Golang meetups', othersIndex['meetup']),
+    new SimpleCommand('social', 'Show Golang social medias', othersIndex['social']),
     new HistoryCommand(),
 );
 
