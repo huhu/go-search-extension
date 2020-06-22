@@ -1,11 +1,13 @@
 function AwesomeSearch(index) {
     this.awesomeIndex = {};
-    this.awesomeNames = [];
     index.forEach(([name, url, description, category]) => {
-        name = category + ';' + name;
-        this.awesomeIndex[name] = {url, description};
-        this.awesomeNames.push(name);
+        let key = category + ';' + name;
+        if (!this.awesomeIndex.hasOwnProperty(key)) {
+            this.awesomeIndex[key] = [];
+        }
+        this.awesomeIndex[key].push({category, name, url, description});
     });
+    this.awesomeNames = Object.keys(this.awesomeIndex);
 }
 
 AwesomeSearch.prototype.search = function(keyword) {
@@ -25,8 +27,7 @@ AwesomeSearch.prototype.search = function(keyword) {
 
         if ([categoryMatchIndex, nameMatchIndex].some(i => i !== 999)) {
             result.push({
-                name, category, nameMatchIndex, categoryMatchIndex,
-                ...this.awesomeIndex[rawName],
+                rawName, name, nameMatchIndex, categoryMatchIndex,
             });
         }
     }
@@ -39,5 +40,7 @@ AwesomeSearch.prototype.search = function(keyword) {
             return a.nameMatchIndex - b.nameMatchIndex;
         }
         return a.categoryMatchIndex - b.categoryMatchIndex;
+    }).flatMap(item => {
+        return this.awesomeIndex[item.rawName];
     });
 }
