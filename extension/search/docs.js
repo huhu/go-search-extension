@@ -1,44 +1,25 @@
 function DocSearch(searchIndex) {
-    this.docs = [];
-    Object.entries(searchIndex).forEach(([pkg, docs]) => {
-        this.docs = this.docs.concat(docs.map(([label, description, type]) => {
-            return {
-                description, type, label,
-                package: pkg,
-            }
-        }));
-    });
+    this.docs = searchIndex;
 }
 
 DocSearch.prototype.search = function(query) {
     query = query.replace(/[-_\s]/ig, "").toLowerCase();
     let results = [];
-    for (let doc of this.docs) {
-        let packageMatchIndex = doc.package.indexOf(query);
-        if (packageMatchIndex === -1) {
-            packageMatchIndex = 999;
-        }
-
-        let labelMatchIndex = doc.label.toLowerCase().indexOf(query);
-        if (labelMatchIndex === -1) {
-            labelMatchIndex = 999;
-        }
-
-        if ([packageMatchIndex, labelMatchIndex].some(i => i !== 999)) {
+    for (let [name, description, type] of this.docs) {
+        let matchIndex = name.toLowerCase().indexOf(query);
+        if (matchIndex !== -1) {
             results.push({
-                packageMatchIndex,
-                labelMatchIndex,
-                ...doc,
-            })
+                name,
+                matchIndex,
+                description,
+                type
+            });
         }
     }
     return results.sort((a, b) => {
-        if (a.packageMatchIndex === b.packageMatchIndex) {
-            if (a.labelMatchIndex === b.labelMatchIndex) {
-                return a.label.length - b.label.length;
-            }
-            return a.labelMatchIndex - b.labelMatchIndex;
+        if (a.matchIndex === b.matchIndex) {
+            return a.name.length - b.name.length;
         }
-        return a.packageMatchIndex - b.packageMatchIndex;
+        return a.matchIndex - b.matchIndex;
     });
 };

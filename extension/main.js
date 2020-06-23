@@ -19,11 +19,10 @@ omnibox.bootstrap({
         return searcher.search(query);
     },
     onFormat: (index, doc) => {
-        let text = doc.package;
-        let path = doc.package;
+        let text = doc.name;
+        let path = doc.name;
         if (doc.type !== "package") {
-            text += `.${doc.label}`;
-            path += `#${doc.label}`;
+            path = path.replace(/\./, "#");
         }
         return {
             content: `https://pkg.go.dev/${path}`,
