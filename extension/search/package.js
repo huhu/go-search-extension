@@ -16,7 +16,7 @@ PackageSearch.prototype.search = function(keyword) {
         if (domainMatchIndex === -1) {
             domainMatchIndex = LOWEST_MATCH_INDEX;
         }
-        let repositoryMatchIndex = repository ? repository.indexOf(keyword) : LOWEST_MATCH_INDEX;
+        let repositoryMatchIndex = repository ? repository.replace(/[-_]/ig, "").indexOf(keyword) : LOWEST_MATCH_INDEX;
         if (repositoryMatchIndex === -1) {
             repositoryMatchIndex = LOWEST_MATCH_INDEX;
         }
