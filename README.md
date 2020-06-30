@@ -4,7 +4,7 @@
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/epanejkfcekejmmfbcpbcbigfpefbnlb.svg)
 ![Mozilla Add-on](https://img.shields.io/amo/v/go-search-extension?color=%2320123A)
-![Microsoft Edge](https://img.shields.io/badge/microsoft--edge-0.1.0-1D4F8C)
+![Microsoft Edge](https://img.shields.io/badge/microsoft--edge-0.2.0-1D4F8C)
 [![license-mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/huhu/go-search-extension/blob/master/LICENSE)
 
 ## Installation
