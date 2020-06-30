@@ -14,3 +14,8 @@ theme = "juice"
 
 [extra]
 # Put all your custom variables here
+juice_logo_name = "Go Search Extension"
+juice_logo_path = "logo.png"
+juice_extra_menu = [
+    { text = "Github", link = "https://github.com/huhu/go-search-extension"}
+]
