@@ -17,5 +17,5 @@ theme = "juice"
 juice_logo_name = "Go Search Extension"
 juice_logo_path = "logo.png"
 juice_extra_menu = [
-    { text = "Github", link = "https://github.com/huhu/go-search-extension"}
+    { title = "Github", link = "https://github.com/huhu/go-search-extension"}
 ]

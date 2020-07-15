@@ -1,0 +1,31 @@
+
+.btn-download {
+  font-family: "Fira Sans", sans-serif;
+  color: black;
+  background-color: #FDFDFD;
+  border-radius: 12px;
+  margin: 15px;
+  padding: 10px 0 10px 20px;
+  font-size: 20px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  background-position: 20px;
+  width: 240px;
+}
+
+.chrome {
+  background-image: url("chrome.svg");
+}
+
+.firefox {
+  background-image: url("firefox.svg");
+}
+
+.edg {
+  background-image: url("edge.svg");
+}
+
+.hide {
+  display: none;
+}

@@ -1,5 +1,7 @@
 {% extends "juice/templates/index.html" %}
-
+{% block head %}
+<link rel="stylesheet" href="{{ get_url(path="index.css") }}">
+{% endblock head %}
 {% block hero %}
 <section style="padding:10px">
     <h1 class="text-center heading-text">
@@ -7,7 +9,7 @@
     </h1>
     <h3 class="text" style="text-align: center;">
         Input keyword <b>go</b> then press
-        <code>Space</code>
+        <code>Space</code> in the address bar
         to get started. Just that easy!
     </h3>
     <div style="margin-top: 50px; display: flex; flex-direction: column; align-items: center">
@@ -20,16 +22,33 @@
            target="_blank">
             Install to Chrome
         </a>
-        <a class="btn-download firefox" href="https://addons.mozilla.org/en-US/firefox/addon/rust-search-extension/"
+        <a class="btn-download firefox" href="https://addons.mozilla.org/en-US/firefox/addon/go-search-extension/"
            target="_blank">
             Install to Firefox
         </a>
         <a class="btn-download edg"
-           href="https://microsoftedge.microsoft.com/addons/detail/olemfibpaicdoooacpfffccidjjagmoe"
+           href="https://microsoftedge.microsoft.com/addons/detail/ebibclchdmagkhopidkjckjkbhghfehh"
            target="_blank">
             Install to Edge
         </a>
     </div>
 </section>
-
+<script>
+    function mobilizeDownloadButton() {
+        let navigator = window.navigator.userAgent.toLocaleLowerCase();
+        if (window.innerWidth < 768) {
+            document.querySelectorAll('.btn-download').forEach((element) => {
+                element.classList.add('hide');
+            });
+            let target = ['firefox', 'edg'].find(item => navigator.includes(item)) || 'chrome';
+            document.querySelector(`.${target}`).classList.remove('hide');
+        } else {
+            document.querySelectorAll('.btn-download').forEach((element) => {
+                element.classList.remove('hide');
+            });
+        }
+    }
+    mobilizeDownloadButton();
+    window.onresize = function () { mobilizeDownloadButton() };
+</script>
 {% endblock %}
