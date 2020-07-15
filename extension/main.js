@@ -7,7 +7,7 @@ const commandManager = new CommandManager(
     new SimpleCommand("book", "Show all Golang e-books.", othersIndex['book']),
     new SimpleCommand('conf', 'Show Golang conferences', othersIndex['conf']),
     new SimpleCommand('meetup', 'Show Golang meetups', othersIndex['meetup']),
-    new SimpleCommand('social', 'Show Golang social medias', othersIndex['social']),
+    new SimpleCommand('social', 'Show Golang social media', othersIndex['social']),
     new HistoryCommand(),
 );
 

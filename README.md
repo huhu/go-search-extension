@@ -21,6 +21,7 @@
 - Search standard library docs
 - Search third party packages on pkg.go.dev
 - Search awesome golang resources
+- Builtin commands (`book`, `conf`, `meetup`, `social`, and `history`)
 
 ## How to use it
    
