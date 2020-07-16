@@ -36,6 +36,16 @@
 }
 
 @media screen and (max-width: 768px) {
+  .logo {
+    font-size: 16px;
+    margin: 10px;
+
+    img {
+      width: 25px;
+      margin: 0 10px 0 0;
+    }
+  }
+  
   .explore-more, .gopher {
     display: none;
   }
