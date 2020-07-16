@@ -16,13 +16,13 @@ Let's explain it in more detail:
 
 The whole standard library is searchable. No matter a `package`, `func`, or `interface`, the result you desired is just a keystroke away. Select one and enter, you'll be redirected to the proper [pkg.go.dev](http://pkg.go.dev) page effortlessly.
 
-
+![](/std.png)
 
 ### Search top 20K packages
 
 Just searching the std library is not enough. So we crawled top starred Go packages from Github and built the index file for TOP 20K, then everyone can search those great packages easily and instantly. 
 
-
+![](/package.png)
 
 Hope you like it, we bring several prefix sign to help you search the corresponding kind of content exclusively. For example, the **!** is package searching prefix, the **!!** is repository mode prefix, the **$** is the awesome golang list searching prefix (See the following part). If no prefix sign is specified, the default search is the standard library. :)
 
@@ -30,7 +30,7 @@ Hope you like it, we bring several prefix sign to help you search the correspond
 
 While we searching the top package, we also hope we can jump to the package repository directly. Yeah, this is possible! Just prefix **!!** before the keyword, you'll open the repository page instead of the default [pkg.go.dev](http://pkg.go.dev) page. However, we only support Github, Gitlab, Bitbucket, Gitea, etc.
 
-
+![](/repository-mode.png)
 
 ### Awesome golang list search
 
@@ -38,11 +38,11 @@ While we searching the top package, we also hope we can jump to the package repo
 
 Prefix **$** before the keyword, you'll get the desired result from the awesome list.
 
-
+![](/awesome.png)
 
 ### Builtin commands
 
-The command system brings a handy set of useful and convenient commands to you. Each command starts with a : (colon), followed by the name, and function differently in individual. Those commands including but not limited to:
+The command system brings a handy set of useful and convenient commands to you. Each command starts with a **:** (colon), followed by the name, and function differently in individual. Those commands including but not limited to:
 
 - `:help` - Show the help messages.
 - `:book` - Show all Golang e-books.
@@ -51,7 +51,7 @@ The command system brings a handy set of useful and convenient commands to you. 
 - `:social` - Show Golang social medias.
 - `:history` - Show your local search history
 
-
+![](/commands.png)
 
 ## **Page down/up easily**
 

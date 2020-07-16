@@ -1,3 +1,7 @@
+.content img {
+  width: 75%;
+  height: auto;
+}
 
 .btn-download {
   font-family: "Fira Sans", sans-serif;
@@ -48,5 +52,10 @@
   
   .explore-more, .gopher {
     display: none;
+  }
+
+  .content img {
+    width: 100%;
+    height: auto;
   }
 }
