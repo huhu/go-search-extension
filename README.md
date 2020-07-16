@@ -1,5 +1,7 @@
 # Go Search Extension
 
+<img align="right" width="280" src="gopher.svg">
+
 ### The ultimate search extension for Golang.
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/epanejkfcekejmmfbcpbcbigfpefbnlb.svg)

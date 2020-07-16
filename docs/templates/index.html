@@ -33,6 +33,11 @@
         </a>
     </div>
 </section>
+<img class="gopher" src="{{ get_url(path="gopher.svg") }}" alt="gopher">
+<div class="explore-more text"
+     onclick="document.getElementById('features').scrollIntoView({behavior: 'smooth'})">
+    Explore More ⇩
+</div>
 <script>
     function mobilizeDownloadButton() {
         let navigator = window.navigator.userAgent.toLocaleLowerCase();

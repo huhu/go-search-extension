@@ -29,3 +29,14 @@
 .hide {
   display: none;
 }
+
+.gopher {
+  max-width: 55%;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .explore-more, .gopher {
+    display: none;
+  }
+}
