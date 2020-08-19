@@ -9,6 +9,8 @@
 ![Microsoft Edge](https://img.shields.io/badge/microsoft--edge-0.2.0-1D4F8C)
 [![license-mit](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/huhu/go-search-extension/blob/master/LICENSE)
 
+[https://go.extension.sh/](https://go.extension.sh/)
+
 ## Installation
 
 - [Chrome Web Store](https://chrome.google.com/webstore/detail/golang-search/epanejkfcekejmmfbcpbcbigfpefbnlb)
