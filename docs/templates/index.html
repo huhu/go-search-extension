@@ -57,3 +57,12 @@
     window.onresize = function () { mobilizeDownloadButton() };
 </script>
 {% endblock %}
+{% block footer %}
+<iframe id="footer" src="https://huhu.io/extension-footer.html"
+        style="display:block;width:100%;border:none;"></iframe>
+<script>
+    window.onmessage = e => {
+        e.data.hasOwnProperty("frameHeight") && (document.getElementById("footer").style.height = `${e.data.frameHeight}px`)
+    }
+</script>
+{% endblock footer %}
