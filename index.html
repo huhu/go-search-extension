@@ -202,12 +202,14 @@
     </main>
 
     
-    <footer>
-        <small class="subtext">
-            <a href="https://huhu.io">Huhu.io</a> © 2020
-        </small>
-    </footer>
-    
+<iframe id="footer" src="https://huhu.io/extension-footer.html"
+        style="display:block;width:100%;border:none;"></iframe>
+<script>
+    window.onmessage = e => {
+        e.data.hasOwnProperty("frameHeight") && (document.getElementById("footer").style.height = `${e.data.frameHeight}px`)
+    }
+</script>
+
 </body>
 <script>
     function highlightNav(heading) {
