@@ -1,10 +1,10 @@
 local manifest = import 'core/manifest.libsonnet';
+local utils = import 'core/utils.libsonnet';
+
 local icons() = {
   [size]: 'icon.png'
   for size in ['16', '48', '128']
 };
-
-local js_files(name, files) = ['%s/%s.js' % [name, file] for file in files];
 
 local json = manifest.new(
   name='Go Search Extension',
@@ -13,8 +13,8 @@ local json = manifest.new(
   description='Search Golang std docs and third packages in your address bar instantly!',
 )
              .addIcons(icons())
-             .addBackgroundScripts(js_files('index', ['godocs', 'packages', 'awesome', 'others']))
-             .addBackgroundScripts(js_files('search', ['docs', 'package', 'awesome']))
+             .addBackgroundScripts(utils.js_files('index', ['godocs', 'packages', 'awesome', 'others']))
+             .addBackgroundScripts(utils.js_files('search', ['docs', 'package', 'awesome']))
              .addBackgroundScripts(['command/help.js', 'main.js']);
 
 if std.extVar('browser') == 'firefox' then
