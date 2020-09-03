@@ -75,7 +75,6 @@ function join(list) {
 }
 
 omnibox.addPrefixQueryEvent("$", {
-    // deduplicate: true,
     onSearch: (query) => {
         return awesomeSearcher.search(query);
     },
