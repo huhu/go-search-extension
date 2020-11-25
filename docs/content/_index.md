@@ -4,11 +4,11 @@ sort_by = "weight"
 +++
 
 
-Hi all. I'm so honored to introduce my product: **Go Search Extension,** a handy browser plugin to helps every Go developer search docs and package in the address bar instantly. 
+**Go Search Extension** is a handy browser plugin to helps every Go developer search docs and packages in the address bar instantly. 
 
-So how does it works? Easy! Just input keyword **go** + **Space** in the address bar to activate the extension, then input any keyword you wanna search, the extension will respond to the related result in an instant! It's hugely fast just like a **millisecond-level** search! Why it so fast? Because we build the whole standard docs and packages as an offline index file.
-
-> I also the creator of **[Rust Search Extension](https://rust.extension.sh)**, which gets a lot of traction from the rust community. And more programming version (such as C/C++, Javascript) is just in the plan. See [https://github.com/huhu](https://github.com/huhu) if you want to know more.
+Just input keyword **go** + **Space** in the address bar to activate the extension, then input any keyword you wanna search, the extension will response with the related result in an instant! 
+It's hugely fast just like a **millisecond-level** search! 
+Why it so fast? Because we have an integration of several offline index files, which provides offline and instant search. No online search engine required.
 
 Let's explain it in more detail:
 
@@ -34,7 +34,7 @@ While we searching the top package, we also hope we can jump to the package repo
 
 ### Awesome golang list search
 
-[Awesome Golang](https://github.com/avelino/awesome-go) is an awesome resource itself for searching. Hence, we indexed the whole list! 
+[Awesome Golang](https://github.com/avelino/awesome-go) is an awesome resource itself for searching. Therefore, we indexed the whole list! 
 
 Prefix **$** before the keyword, you'll get the desired result from the awesome list.
 
