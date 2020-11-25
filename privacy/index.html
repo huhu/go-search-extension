@@ -148,7 +148,7 @@ We believe that your privacy is a fundamental right. This page informs you of ou
         document.querySelectorAll(".toc a").forEach((item) => {
             item.classList.remove("active");
         });
-        document.querySelector(".toc a[href='" + pathname + "#" + heading + "']").classList.add("active");
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
     }
 
     let currentHeading = "";

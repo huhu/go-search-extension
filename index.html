@@ -187,11 +187,10 @@
         <div class="content text">
             
             <div id="features" class="heading-text">Overview</div>
-            <p>Hi all. I'm so honored to introduce my product: <strong>Go Search Extension,</strong> a handy browser plugin to helps every Go developer search docs and package in the address bar instantly. </p>
-<p>So how does it works? Easy! Just input keyword <strong>go</strong> + <strong>Space</strong> in the address bar to activate the extension, then input any keyword you wanna search, the extension will respond to the related result in an instant! It's hugely fast just like a <strong>millisecond-level</strong> search! Why it so fast? Because we build the whole standard docs and packages as an offline index file.</p>
-<blockquote>
-<p>I also the creator of <strong><a href="https://rust.extension.sh">Rust Search Extension</a></strong>, which gets a lot of traction from the rust community. And more programming version (such as C/C++, Javascript) is just in the plan. See <a href="https://github.com/huhu">https://github.com/huhu</a> if you want to know more.</p>
-</blockquote>
+            <p><strong>Go Search Extension</strong> is a handy browser plugin to helps every Go developer search docs and packages in the address bar instantly. </p>
+<p>Just input keyword <strong>go</strong> + <strong>Space</strong> in the address bar to activate the extension, then input any keyword you wanna search, the extension will response with the related result in an instant! 
+It's hugely fast just like a <strong>millisecond-level</strong> search! 
+Why it so fast? Because we have an integration of several offline index files, which provides offline and instant search. No online search engine required.</p>
 <p>Let's explain it in more detail:</p>
 <h3 id="search-std-docs">Search std docs</h3>
 <p>The whole standard library is searchable. No matter a <code>package</code>, <code>func</code>, or <code>interface</code>, the result you desired is just a keystroke away. Select one and enter, you'll be redirected to the proper <a href="http://pkg.go.dev">pkg.go.dev</a> page effortlessly.</p>
@@ -204,7 +203,7 @@
 <p>While we searching the top package, we also hope we can jump to the package repository directly. Yeah, this is possible! Just prefix <strong>!!</strong> before the keyword, you'll open the repository page instead of the default <a href="http://pkg.go.dev">pkg.go.dev</a> page. However, we only support Github, Gitlab, Bitbucket, Gitea, etc.</p>
 <p><img src="/repository-mode.png" alt="" /></p>
 <h3 id="awesome-golang-list-search">Awesome golang list search</h3>
-<p><a href="https://github.com/avelino/awesome-go">Awesome Golang</a> is an awesome resource itself for searching. Hence, we indexed the whole list! </p>
+<p><a href="https://github.com/avelino/awesome-go">Awesome Golang</a> is an awesome resource itself for searching. Therefore, we indexed the whole list! </p>
 <p>Prefix <strong>$</strong> before the keyword, you'll get the desired result from the awesome list.</p>
 <p><img src="/awesome.png" alt="" /></p>
 <h3 id="builtin-commands">Builtin commands</h3>
@@ -242,7 +241,7 @@
         document.querySelectorAll(".toc a").forEach((item) => {
             item.classList.remove("active");
         });
-        document.querySelector(".toc a[href='" + pathname + "#" + heading + "']").classList.add("active");
+        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
     }
 
     let currentHeading = "";
