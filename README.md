@@ -35,6 +35,10 @@ you want to search, the extension will response the related search results insta
 
 ## Contribution
 
+[jsonnet](https://jsonnet.org/) is required before getting started. To install `jsonnet`, 
+please check `jsonnet`'s [README](https://github.com/google/jsonnet#packages). 
+For Linux users, the `snap` is a good choice to [install jsonnet](https://snapcraft.io/install/jsonnet/ubuntu).
+
 ```bash
 $ git clone --recursive https://github.com/huhu/go-search-extension
 Cloning into 'go-search-extension'...
