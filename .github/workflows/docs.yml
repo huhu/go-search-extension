@@ -17,4 +17,5 @@ jobs:
     - run: |
         git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
     - name: Deloy docs
-      run: ./core/deploy-docs.sh
+      run: |
+        source ./core/deploy-docs.sh && build && deploy
