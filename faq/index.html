@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Changelog |  </title>
+    <title>FAQ |  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
     :root {
@@ -92,13 +92,25 @@
             <div class="toc-sticky">
                 
                 <div class="toc-item">
-                    <a class="subtext" href="/changelog/#v0-2-2020-06-30">v0.2 - 2020-06-30</a>
+                    <a class="subtext" href="/faq/#platform">Platform</a>
                 </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#any-plans-to-support-safari"><small>- Any plans to support Safari?</small></a>
+                </div>
+                
                 
                 
                 <div class="toc-item">
-                    <a class="subtext" href="/changelog/#v0-1-2020-04-05">v0.1 - 2020-04-05</a>
+                    <a class="subtext" href="/faq/#permissions">Permissions</a>
                 </div>
+                
+                
+                <div class="toc-item-child">
+                    <a class="subtext" href="/faq/#why-does-the-extension-require-reading-browser-history-permission"><small>- Why does the extension require reading browser history permission?</small></a>
+                </div>
+                
                 
                 
             </div>
@@ -108,26 +120,15 @@
 
         <div class="content text">
             
-<div class="heading-text">Changelog</div>
-<h1 id="v0-2-2020-06-30">v0.2 - 2020-06-30</h1>
-<ul>
-<li>Bump third package index size to Top 20K</li>
-<li>Add awesome go searching</li>
-<li>Command system:
-<ul>
-<li><code>book</code> - Show all Golang e-books.</li>
-<li><code>conf</code> - Show Golang conferences.</li>
-<li><code>meetup</code> - Show Golang meetups.</li>
-<li><code>social</code> - Show Golang social medias.</li>
-</ul>
-</li>
-</ul>
-<h1 id="v0-1-2020-04-05">v0.1 - 2020-04-05</h1>
-<p>First release! 🎉🥳🥳</p>
-<ul>
-<li>Search standard library docs</li>
-<li>Search third party packages on pkg.go.dev</li>
-</ul>
+<div class="heading-text">Frequently asked questions</div>
+<h1 id="platform">Platform</h1>
+<h3 id="any-plans-to-support-safari">Any plans to support Safari?</h3>
+<p>Unfortunately, no. According to MDN's web extension <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs#omnibox">compatibility chart</a>:
+Safari doesn't support omnibox API, which is essential to this extension.</p>
+<h1 id="permissions">Permissions</h1>
+<h3 id="why-does-the-extension-require-reading-browser-history-permission">Why does the extension require reading browser history permission?</h3>
+<p>The sole permission required by the extension is <a href="https://developer.chrome.com/extensions/tabs">tabs</a>, which gives accessing browser tabs information capability.
+We use this permission to open the search result in the <code>current tab</code> or <code>new tab</code> for the sole purpose. Feel free to check our <a href="/privacy/">Privacy Policy</a> for more information.</p>
 
 
         </div>
