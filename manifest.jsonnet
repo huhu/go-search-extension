@@ -8,7 +8,7 @@ local icons() = {
 
 local json = manifest.new(
   name='Go Search Extension',
-  version='0.2',
+  version='0.2.1',
   keyword='go',
   description='Search Golang std docs and third packages in your address bar instantly!',
 )
