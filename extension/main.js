@@ -96,8 +96,3 @@ omnibox.addPrefixQueryEvent(":", {
 });
 
 omnibox.addNoCacheQueries(":");
-
-let fileNewIssue = "title=Have you found a bug? Did you feel something was missing?&body=Whatever it was, we'd love to hear from you.";
-chrome.runtime.setUninstallURL(
-    `https://github.com/huhu/go-search-extension/issues/new?${encodeURI(fileNewIssue)}`
-);

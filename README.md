@@ -54,4 +54,3 @@ $ make edge # For Edge version
 ## Get involved
 
 - You can contact us on Discord Channel: https://discord.gg/xucZNVd
-- Or by adding the Wechat ID: `huhu_io`, we'll invite you to our Wechat group.
