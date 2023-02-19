@@ -172,5 +172,6 @@ var othersIndex = {
     ],
     ["Writing A Compiler In Go", "https://compilerbook.com", ""],
     ["Writing An Interpreter In Go", "https://interpreterbook.com", ""],
+    ["Effective Go", "https://go.dev/doc/effective_go", ""],
   ],
 };
