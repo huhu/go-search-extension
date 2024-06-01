@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <title>Privacy |  </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    
     <style>
     :root {
         /* Primary theme color */
@@ -17,10 +20,17 @@
         --secondary-color: #fcfaf6;
         --secondary-text-color: #303030;
         --toc-highlight-text-color: #4356c2;
+
+        /* Font used for headers (h1 & h2) */
+        --header-font-family: "Fira Sans", sans-serif;
+        /* Font used for text */
+        --text-font-family: "Fira Sans", sans-serif;
     }
 </style>
+    
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/normalize.css">
     <link rel="stylesheet" href="/juice.css">
     
@@ -49,6 +59,7 @@
       content="Input keyword go then press Space in the address bar to get started. Just that easy!">
 <meta name="twitter:image" content="https://go.extension.sh/banner.png">
 <link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/carbon.css">
 
 </head>
 
@@ -57,7 +68,7 @@
 <header class="box-shadow">
     
 
-<a href="&#x2F;">
+<a href="/">
     <div class="logo">
         <img src="/logo.png" alt="logo">
         Go Search Extension
@@ -66,15 +77,24 @@
 
 <nav>
     
-    <a class="nav-item subtitle-text" href="&#x2F;faq&#x2F;">FAQ</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;changelog&#x2F;">Changelog</a>
     
-    <a class="nav-item subtitle-text" href="&#x2F;privacy&#x2F;">Privacy</a>
+    <a class="nav-item subtitle-text" href="/faq/">FAQ</a>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/changelog/">Changelog</a>
+    
+    
+    
+    
+    <a class="nav-item subtitle-text" href="/privacy/">Privacy</a>
+    
     
     
         
-        <a class="nav-item subtitle-text" href="https:&#x2F;&#x2F;github.com&#x2F;huhu&#x2F;go-search-extension">Github</a>
+        <a class="nav-item subtitle-text" href="https://github.com/huhu/go-search-extension">Github</a>
         
     
 </nav>
@@ -150,38 +170,28 @@ We believe that your privacy is a fundamental right. This page informs you of ou
 
 </body>
 <script>
-    function highlightNav(heading) {
-        let pathname = location.pathname;
+    const scrollHandler = entries => {
+        // Find the first entry which intersecting and ratio > 0.9 to highlight.
+        let entry = entries.find(entry => {
+            return entry.isIntersecting && entry.intersectionRatio > 0.9;
+        });
+        if (!entry) return;
+
         document.querySelectorAll(".toc a").forEach((item) => {
             item.classList.remove("active");
         });
-        document.querySelector(".toc a[href$='" + pathname + "#" + heading + "']").classList.add("active");
-    }
 
-    let currentHeading = "";
-    window.onscroll = function () {
-        let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
-        let elementArr = [];
-
-        h.forEach(item => {
-            if (item.id !== "") {
-                elementArr[item.id] = item.getBoundingClientRect().top;
-            }
-        });
-        elementArr.sort();
-        for (let key in elementArr) {
-            if (!elementArr.hasOwnProperty(key)) {
-                continue;
-            }
-            if (elementArr[key] > 0 && elementArr[key] < 300) {
-                if (currentHeading !== key) {
-                    highlightNav(key);
-                    currentHeading = key;
-                }
-                break;
-            }
+        // let url = new URL(`#${entry.target.id}`);
+        let link = document.querySelector(`.toc a[href$="${decodeURIComponent(`#${entry.target.id}`)}"]`)
+        if (link) {
+            link.classList.add("active");
+            link.scrollIntoView({ behavior: "auto", block: "nearest" });
         }
-    }
+    };
+    // Set -100px root margin to improve highlight experience.
+    const observer = new IntersectionObserver(scrollHandler, { threshold: 1 });
+    let items = document.querySelectorAll('h1,h2,h3,h4,h5,h6');
+    items.forEach(item => observer.observe(item));
 </script>
 
 </html>
