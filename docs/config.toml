@@ -17,7 +17,8 @@ theme = "juice"
 juice_logo_name = "Go Search Extension"
 juice_logo_path = "logo.png"
 juice_extra_menu = [
-    { title = "Github", link = "https://github.com/huhu/go-search-extension"}
+    { title = "Geddle", link = "https://geddle.com" },
+    { title = "Github", link = "https://github.com/huhu/go-search-extension" }
 ]
 meta_title = "Go Search Extension: The ultimate search extension for Golang"
 meta_description = "Input keyword go then press Space in the address bar to get started. Just that easy!"
